@@ -1,0 +1,21 @@
+```scala
+class MyClass(val name: String) {
+  private var _age: Int = 0
+
+  def age: Int = _age
+  def age_=(newAge: Int): Unit = {
+    if (newAge >= 0) _age = newAge
+    else {
+      println("Warning: Age cannot be negative. Setting age to 0.")
+      _age = 0
+    }
+  }
+}
+
+object Main extends App {
+  val person = new MyClass("John")
+  person.age = 30 // this is fine
+  person.age = -1 // This will print a warning, but won't throw an exception
+  println(person.age) // Prints 0
+}
+```
